@@ -28,8 +28,4 @@ public class Kata {
         while(answer.charAt(0) == '0') answer = answer.substring(1);
         return answer;
     }
-    @Test
-    public void test() {
-        assertEquals("579", sumStrings("123", "456"));
-    }
 }

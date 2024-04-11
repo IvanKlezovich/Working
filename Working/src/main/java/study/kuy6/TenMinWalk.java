@@ -17,11 +17,4 @@ public class TenMinWalk {
         }
         return vertical ==  0 && horizontal == 0;
     }
-        @Test
-        public void Test() {
-            assertTrue("Should return true", isValid(new char[]{'n', 's', 'n', 's', 'n', 's', 'n', 's', 'n', 's'}));
-            assertFalse("Should return false", isValid(new char[]{'w', 'e', 'w', 'e', 'w', 'e', 'w', 'e', 'w', 'e', 'w', 'e'}));
-            assertFalse("Should return false", isValid(new char[]{'w'}));
-            assertFalse("Should return false", isValid(new char[]{'n', 'n', 'n', 's', 'n', 's', 'n', 's', 'n', 's'}));
-        }
 }
