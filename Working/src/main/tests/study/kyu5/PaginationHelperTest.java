@@ -2,15 +2,14 @@ package study.kyu5;
 
 import org.junit.Test;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class PaginationHelperTest {
 
-    private List<Character> collection = List.of('a', 'b', 'c', 'd', 'e', 'f');
-    private PaginationHelper<Character> helper = new PaginationHelper<>(collection, 4);
+    private final List<Character> collection = List.of('a', 'b', 'c', 'd', 'e', 'f');
+    private final PaginationHelper<Character> helper = new PaginationHelper<>(collection, 4);
 
     @Test
     public void testPageCount() {

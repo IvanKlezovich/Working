@@ -4,13 +4,11 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-
 public class PaginationHelper<I> {
     private Optional<Integer> capacitySite;
     private Optional<Integer> capacityPages;
     List<Integer> pages = new ArrayList<>();
-    private int size;
+    private final int size;
     /**
      * The constructor takes in an array of items and an integer indicating how many
      * items fit within a single page
@@ -60,11 +58,7 @@ public class PaginationHelper<I> {
      */
     public int pageItemCount(int pageIndex) {
         Optional<Integer> answer = Optional.ofNullable(pageIndex > -1 ?
-                                        capacityPages.isPresent() ?
-                                            capacityPages.get()-1 >= pageIndex ?
-                                                pages.get(pageIndex)
-                                            : null
-                                        :null
+                capacityPages.filter(integer -> integer - 1 >= pageIndex).map(integer -> pages.get(pageIndex)).orElse(null)
                                     :null);
         return answer.orElse(-1);
     }
@@ -75,7 +69,7 @@ public class PaginationHelper<I> {
      */
     public int pageIndex(int itemIndex) {
         Optional<Integer> answer = Optional.ofNullable(itemIndex > 0 ?
-                                        capacitySite.isPresent() ?
+                                        capacitySite.isPresent() && capacityPages.isPresent() ?
                                             (itemIndex / size <= capacityPages.get() ?
                                                  itemIndex / size
                                             : null)

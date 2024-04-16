@@ -1,8 +1,5 @@
 package study.kuy6;
 
-import org.junit.Test;
-import static org.junit.Assert.*;
-
 public class TenMinWalk {
     public static boolean isValid(char[] walk) {
         if(walk.length != 10) return false;
