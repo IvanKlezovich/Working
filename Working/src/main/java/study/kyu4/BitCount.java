@@ -1,10 +1,6 @@
 package study.kyu4;
 
-import org.junit.Test;
-
 import java.math.BigInteger;
-
-import static org.junit.Assert.assertEquals;
 
 public class BitCount {
     private static BigInteger onespower(long number){
